@@ -6,6 +6,13 @@
  * ie: "cat" => "tac"
  */
 
+var firstReverse = function(str){
+    if(typeof str === 'string'){
+      return str.split('').reverse().join('');
+    }else{
+        return null;
+    }
+ };
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
  * return the string in alphabetical order
@@ -14,6 +21,13 @@
  * ie: "cake" => "acek"
  */
 
+ var alphaOrder = function(str){
+     if(typeof str === 'string'){
+         return str.split('').sort().join('');
+     }else{
+         return null;
+     }
+ }
  /** Function: vowelCount
  * The function will take the str parameter being passed in and
  * return the number of vowels in the string
@@ -22,6 +36,20 @@
  * ie: "oreo" => 3
  */
 
+ var vowelCount = function(str){
+   var vowels = 'aeiouAEIOU';
+   var vowelCount = 0;
+   if (typeof str === 'string'){
+       for(var i = 0; i < str.length; i ++){
+           if (vowels.indexOf(str[i]) !== -1){
+               vowelCount += 1
+           }
+       }
+       return vowelCount;
+   }else{
+       return null;
+   }
+}         
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
  * return the number of hours and minutes. Seperate the number of hours
@@ -31,6 +59,16 @@
  * ie: 68 => 1:8
  */
 
+ var timeConvert = function(num){
+     var hours = Math.floor(num / 60);
+     var minutes = num % 60;
+     if (typeof num === 'number'){
+         return hours + ":" + minutes;
+     }else{
+         return null;
+     }
+ }
+
  /** Function: repeatString
  * The function will take in two parameters and repeat a given string (first argument)
  * num times (second argument). Return an empty string if num is a negative number
@@ -39,6 +77,14 @@
  * @return {string} repeated num times
  * i.e repeatString("money", 3) => "moneymoneymoney".
  */
+
+ var repeatString = function(str, num){
+     if(num > 0){
+         return str.repeat(num);
+     }else{
+         return null;
+     }
+ }
 
 
 /**
@@ -56,9 +102,9 @@
  */
 
 module.exports = {
-    firstReverse: null,
-    alphaOrder: null,
-    vowelCount: null,
-    timeConvert: null,
-    repeatString: null
+    firstReverse: firstReverse,
+    alphaOrder: alphaOrder,
+    vowelCount: vowelCount,
+    timeConvert: timeConvert,
+    repeatString: repeatString
 }
